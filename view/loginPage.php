@@ -9,9 +9,13 @@
     <title>CMS</title>
 </head>
 <body>
+    <?php
+        // Start session
+        session_start();
+    ?>
     <!-- LogIn form -->
     <div class="login-container">
-    <form action="" method="POST">
+    <form action="/controller/loginController.php" method="POST">
         <h2>LogIn</h2>
         <label for="login">Login</label>
         <input type="text" placeholder="Carlos Sainz" name="login">
@@ -20,11 +24,10 @@
 
         <!-- Errors alert -->
         <?php if (isset($_SESSION["error"])) { ?>
-        <div class="alert">
-            <ul>
-                <li><?= $_SESSION["error"] ?? '' ?></li>
-            </ul>
-        </div>
+            <div class="alert">
+                <span><?= $_SESSION["error"] ?></span>
+            </div>
+            <?php unset($_SESSION["error"]); ?>
         <?php } ?>
 
         <button type="submit">LogIn</button>

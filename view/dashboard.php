@@ -8,6 +8,11 @@
     <title>CMS</title>
 </head>
 <body>
-    
+    <?php
+        // Start session
+        session_start();
+    ?>
+
+    <p><?= $_SESSION["user"][0]["login"] ?></p>
 </body>
 </html>
