@@ -1,0 +1,26 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+/* Basic styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Sora", serif;
+    font-family: 400;
+}
+
+img, svg {
+    max-width: 100%;
+}
+
+label, input {
+    font-family: "Sora", serif;
+}
+
+button, a {
+    cursor: pointer;
+    font-family: "Sora", serif;
+}
