@@ -1,0 +1,127 @@
+/* Wraper styles */
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navigation block styles */
+.wrapper .nav {
+    width: 25%;
+    background-color: #34495E;
+    color: white;
+}
+
+.wrapper .nav .user-info {
+    display: grid;
+    place-items: center;
+    padding-top: 50px;
+}
+
+.wrapper .nav .user-info h2 {
+    padding-bottom: 15px;
+}
+
+.wrapper .nav .user-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    margin-bottom: 15px;
+}
+
+.wrapper .nav .user-info p {
+    font-size: 16px;
+    font-weight: 450;
+}
+
+.wrapper .nav nav {
+    margin-left: 25px;
+    margin-top: 50px;
+    margin-right: 25px;
+}
+
+.wrapper .nav nav a {
+    display: block;
+    color: #d6d6d6;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #d6d6d6;
+    transition: 0.2s ease-in-out;
+}
+
+.wrapper .nav nav a:hover {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+/* Right part styles */
+.container-right {
+    width: 70%;
+    margin: 50px;
+}
+
+.container-right h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0; 
+    border-radius: 4px; 
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #34495E;
+}
+
+table thead tr td {
+    padding: 15px 25px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #BDC3C7;
+    background-color: #ECF0F1;
+    transition: 0.1s ease-in;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #D5DBDB;
+}
+
+table tbody tr:hover {
+    background-color: #AED6F1;
+}
+
+table tbody tr td {
+    color: #2C3E50;
+    text-align: center;
+    padding: 15px 15px;
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table tbody tr .successful_sales {
+    color: #28A745;
+}
+
+table tbody tr .unsuccessful_sales {
+    color: #DC3545;
+}
+
+table tbody tr .income {
+    color: #007BFF;
+}
+
+table tbody tr .expenses {
+    color: #FD7E14;
+}
