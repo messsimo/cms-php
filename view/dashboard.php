@@ -12,6 +12,9 @@
     <?php
         // Start session
         session_start();
+
+        // Require Sales model
+        require("/Users/danielmihai/Documents/code/cms_php/model/salesModel.php");
     ?>
 
     <!-- Wrapper -->
@@ -25,7 +28,7 @@
             </div>
 
             <nav>
-                <a href="">Dashboard</a>
+                <a href="/view/dashboard.php">Dashboard</a>
                 <a href="">Orders managment</a>
                 <a href="">Staff managment</a>
                 <a href="">Products managment</a>
@@ -41,44 +44,22 @@
                         <td>Date</td>
                         <td>Amout of sales</td>
                         <td>Successful sales</td>
-                        <td>Unsuccessul sales</td>
+                        <td>Unsuccessful sales</td>
                         <td>Expenses</td>
                         <td>Income</td>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($salesInfo as $el) { ?>
                     <tr>
-                        <td>January 2023</td>
-                        <td>764</td>
-                        <td class="successful_sales">500</td>
-                        <td class="unsuccessful_sales">264</td>
-                        <td class="expenses">- 94.321$</td>
-                        <td class="income">+ 111.441$</td>
+                        <td><?= $el["date"] ?></td>
+                        <td><?= $el["amount_of_sales"] ?></td>
+                        <td class="successful_sales"><?= $el["successful_sales"] ?></td>
+                        <td class="unsuccessful_sales"><?= $el["unsuccessful_sales"] ?></td>
+                        <td class="expenses">- <?= number_format($el["expenses"]) ?>$</td>
+                        <td class="income">+ <?= number_format($el["income"]) ?>$</td>
                     </tr>
-                    <tr>
-                        <td>January 2023</td>
-                        <td>764</td>
-                        <td class="successful_sales">500</td>
-                        <td class="unsuccessful_sales">264</td>
-                        <td class="expenses">- 94.321$</td>
-                        <td class="income">+ 111.441$</td>
-                    </tr>
-                    <tr>
-                        <td>January 2023</td>
-                        <td>764</td>
-                        <td class="successful_sales">500</td>
-                        <td class="unsuccessful_sales">264</td>
-                        <td class="expenses">- 94.321$</td>
-                        <td class="income">+ 111.441$</td>
-                    </tr>
-                    <tr>
-                        <td>January 2023</td>
-                        <td>764</td>
-                        <td class="successful_sales">500</td>
-                        <td class="unsuccessful_sales">264</td>
-                        <td class="expenses">- 94.321$</td>
-                        <td class="income">+ 111.441$</td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
