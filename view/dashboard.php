@@ -62,6 +62,17 @@
                     <?php } ?>
                 </tbody>
             </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <?php for ($i = 1; $i <= $totalPages; $i++) {
+                    if ($i == $page) {
+                        echo '<strong>' . $i . '</strong> ';
+                    } else {
+                        echo '<a href="/view/dashboard.php?page=' . $i . '">' . $i . '</a> ';
+                    }
+                } ?>
+            </div>
         </div>
     </div>
 </body>
