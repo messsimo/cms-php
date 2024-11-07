@@ -6,7 +6,7 @@
     <!-- Include CSS -->
     <link rel="stylesheet" href="src/css/index.css">
     <link rel="stylesheet" href="src/css/login.css">
-    <title>CMS</title>
+    <title>LogIn</title>
 </head>
 <body>
     <?php

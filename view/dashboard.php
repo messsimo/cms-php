@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include CSS -->
     <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="src/css/nav_block.css">
     <link rel="stylesheet" href="src/css/dashboard.css">
 
     <!-- СhartJS library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>CMS</title>
+    <title>Dashboar - CMS</title>
 </head>
 <body>
     <?php
@@ -34,7 +35,7 @@
 
             <nav>
                 <a href="/view/dashboard.php">Dashboard</a>
-                <a href="">Orders managment</a>
+                <a href="/view/orders_managment.php">Orders managment</a>
                 <a href="">Staff managment</a>
                 <a href="">Products managment</a>
             </nav>
@@ -79,7 +80,7 @@
                 } ?>
             </div>
 
-            <!-- Chart#1 -->
+            <!-- Charts -->
             <div class="charts">
                 <canvas id="myChart"></canvas>
                 <canvas id="myChart2"></canvas>
