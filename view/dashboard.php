@@ -36,7 +36,7 @@
             <nav>
                 <a href="/view/dashboard.php">Dashboard</a>
                 <a href="/view/orders_managment.php">Orders managment</a>
-                <a href="">Staff managment</a>
+                <a href="/view/staff_managment.php">Staff managment</a>
                 <a href="">Products managment</a>
             </nav>
         </div>
