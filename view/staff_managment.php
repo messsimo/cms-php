@@ -35,7 +35,7 @@
             <nav>
                 <a href="/view/dashboard.php">Dashboard</a>
                 <a href="/view/orders_managment.php">Orders managment</a>
-                <a href="">Staff managment</a>
+                <a href="/view/staff_managment.php">Staff managment</a>
                 <a href="">Products managment</a>
             </nav>
         </div>
@@ -54,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $el) { ?>
+                    <?php foreach ($usersInfo as $el) { ?>
                    <tr>
                         <td><?= $el["login"] ?></td>
                         <td><?= $el["email"] ?></td>
@@ -64,6 +64,17 @@
                    <?php } ?>
                 </tbody>
             </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <?php for ($i = 1; $i <= $totalPages; $i++) {
+                    if ($i == $page) {
+                        echo '<strong>' . $i . '</strong> ';
+                    } else {
+                        echo '<a href="/view/staff_managment.php?page=' . $i . '">' . $i . '</a> ';
+                    }
+                } ?>
+            </div>
 
             <!-- Chart -->
             <canvas id="myChart" class="canvas"></canvas>

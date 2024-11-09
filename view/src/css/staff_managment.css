@@ -76,3 +76,34 @@
     max-height: 300px;
     margin-top: 100px;
 }
+
+/* Pagination styles */
+.container-right .pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.container-right .pagination a,
+.container-right .pagination strong {
+    margin-right: 10px;
+    background-color: #5DADE2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 7px 10px 5px 10px; 
+    font-weight: 400;
+    font-size: 14px;
+    transition: 0.2s ease-in;
+}
+
+.container-right .pagination a:hover,
+.container-right .pagination strong:hover {
+    background-color: #D5DBDB;
+    color: black;
+}
+
+.container-right .pagination a:last-child,
+.container-right .pagination strong:last-child {
+    margin-right: 0px;
+}

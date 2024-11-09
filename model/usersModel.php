@@ -2,11 +2,29 @@
     // Require database
     require("/Users/danielmihai/Documents/code/cms_php/model/database.php");
 
-    // SQL all users
+    // SQL all fields
     $sql = "SELECT * FROM `users`";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $users = $stmt->fetchAll(2);
+
+    // Fields pre page
+    $fieldsPrePage = 10; // Need to change value of var, if you want to change amout of fields pre page
+    $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
+    $offset = ($page - 1) * $fieldsPrePage;
+    
+    // Amount pf fields
+    $sql = "SELECT count(*) FROM `users`";
+    $totalFieldsPrepare = $pdo->prepare($sql); 
+    $totalFieldsPrepare->execute();
+    $totalFields = $totalFieldsPrepare->fetchColumn();
+    $totalPages = ceil($totalFields / $fieldsPrePage);
+    
+    // SQL 
+    $sql = "SELECT * FROM `users` ORDER BY `id` DESC LIMIT $offset, $fieldsPrePage";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $usersInfo = $stmt->fetchAll(2);
 
     // Vars
     $label = ["Admin", "Manager", "Staff"];
