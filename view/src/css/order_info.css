@@ -1,0 +1,64 @@
+/* Styles for container */
+.container-right .container-orderInfo {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+}
+
+/* Styles for order info */
+.container-right .container-orderInfo .orderInfo h3 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.container-right .container-orderInfo .orderInfo span {
+    display: block;
+    font-size: 16px;
+}
+
+.container-right .container-orderInfo .orderInfo span i {
+    color: #2C3E50;
+}
+
+/* Styles for status form */
+.container-right .container-orderInfo .chagheStatus h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.container-right .container-orderInfo .chagheStatus form {
+    display: grid;
+    place-items: center;
+    width: 500px;
+}
+
+.container-right .container-orderInfo .chagheStatus form label {
+    color: #2C3E50;
+}
+
+.container-right .container-orderInfo .chagheStatus form select {
+    width: 50%;
+    margin: 5px 0px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid #2C3E50;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+}
+
+.container-right .container-orderInfo .chagheStatus form button {
+    width: 50%;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color: #4A90E2;
+    padding: 7px 0px;
+    border-radius: 4px;
+    transition: 0.2s ease-in;
+}
+
+.container-right .container-orderInfo .chagheStatus form button:hover {
+    background-color: #3C78C0;
+}
