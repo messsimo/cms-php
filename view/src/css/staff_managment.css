@@ -69,3 +69,10 @@
 .container-right table tbody tr .unsuccess b {
     background-color: rgba(220, 53, 69, 0.9);
 }
+
+/* Styles for chart */
+.container-right .canvas {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 100px;
+}

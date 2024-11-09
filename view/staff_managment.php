@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="src/css/nav_block.css">
     <link rel="stylesheet" href="src/css/staff_managment.css">
 
+    <!-- СhartJS library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Staff managment - CMS</title>
 </head>
 <body>
@@ -15,6 +18,8 @@
         // Start session
         session_start();
 
+        // Require users model
+        require("/Users/danielmihai/Documents/code/cms_php/model/usersModel.php");
     ?>
 
     <!-- Wrapper -->
@@ -49,26 +54,57 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($users as $el) { ?>
                    <tr>
-                        <td>Daniel Mihai</td>
-                        <td>danielmihai.it@mail.ru</td>
-                        <td>Admin</td>
+                        <td><?= $el["login"] ?></td>
+                        <td><?= $el["email"] ?></td>
+                        <td><?= $el["access"] ?></td>
                         <td><a href="">More info</a></td>
                    </tr>
-                   <tr>
-                        <td>Daniel Mihai</td>
-                        <td>danielmihai.it@mail.ru</td>
-                        <td>Admin</td>
-                        <td><a href="">More info</a></td>
-                   </tr>
-                   <tr>
-                        <td>Daniel Mihai</td>
-                        <td>danielmihai.it@mail.ru</td>
-                        <td>Admin</td>
-                        <td><a href="">More info</a></td>
-                   </tr>
+                   <?php } ?>
                 </tbody>
             </table>
+
+            <!-- Chart -->
+            <canvas id="myChart" class="canvas"></canvas>
+
+            <script>
+                // Data from PHP to JS
+                const labels1 = <?php echo json_encode($label); ?>;
+                const data = <?php echo json_encode($data); ?>;
+
+                // Chart elements
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                    labels: labels1,
+                    datasets: [{
+                        label: 'Number of Users',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(220, 53, 69, 0.5)', // Admin
+                            'rgba(40, 167, 69, 0.5)', // Manager
+                            'rgba(23, 162, 184, 0.5)' // Staff
+                        ],
+                        borderColor: [
+                            '#DC3545',
+                            '#28A745',
+                            '#17A2B8'
+                        ],
+                        borderWidth: 1
+                        }
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+                });
+            </script>
         </div>
     </div>
 </body>
