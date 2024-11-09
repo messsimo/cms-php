@@ -19,3 +19,17 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $ordersInfo = $stmt->fetchAll(2);
+
+    
+    // Order ifno SQL
+    if (isset($_GET["id"])) {
+        // Var
+        $id = $_GET["id"];
+
+        // SQL
+        $sql = "SELECT * FROM `orders` WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $orderInfo = $stmt->fetchAll(2);
+    }

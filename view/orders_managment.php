@@ -41,6 +41,16 @@
         <div class="container-right">
             <h1>Orders Managment</h1>
 
+            <div class="status-alert">
+                <?php if (isset($_SESSION["error_orderInfo"])) { ?>
+                    <span class="error">ALERT: <?= $_SESSION["error_orderInfo"] ?></span>
+                    <?php unset($_SESSION["error_orderInfo"]); ?>
+                <?php } else if (isset($_SESSION["success_orderInfo"])) { ?>
+                    <span class="success">ALERT: <?= $_SESSION["success_orderInfo"] ?></span>
+                    <?php unset($_SESSION["success_orderInfo"]); ?>
+                <?php } ?>
+            </div>
+
             <table>
                 <thead>
                     <tr>

@@ -1,3 +1,22 @@
+/* Styles for alert from form in order info */
+.container-right .status-alert {
+    margin-bottom: 15px;
+    
+}
+
+.container-right .status-alert .error,
+.container-right .status-alert .success {
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    padding: 7px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.container-right .status-alert .success {
+    background-color: rgba(40, 167, 69, 0.9);
+}
+
 /* Table styles */
 .container-right table {
     width: 100%;
