@@ -30,7 +30,7 @@
         <div class="nav">
             <div class="user-info">
                 <h2>Admin Panel (CMS)</h2>
-                <img src="src/images/anton.png" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
+                <img src="src/images/no_avatar.png" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
                 <p><?= $_SESSION["user"][0]["login"] ?? '' ?></p>
             </div>
 
@@ -46,6 +46,7 @@
         <div class="container-right">
             <h1>Staff Managment</h1>
 
+            <?php if ($_SESSION["user"][0]["access"] == "Admin" || $_SESSION["user"][0]["access"] == "Manager") { ?>
             <div class="create-user">
                 <button id="openForm-btn">Create new user</button>
 
@@ -91,6 +92,7 @@
                     </form>
                 </div>
             </div>
+            <?php } ?>
 
             <table>
                 <thead>
