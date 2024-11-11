@@ -1,3 +1,22 @@
+/* Overlay */
+.overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: 0.1s ease-in; 
+    z-index: 1; 
+}
+
+.overlay.active {
+    opacity: 1; 
+    visibility: visible; 
+}
+
 /* Table styles */
 .container-right table {
     width: 100%;
@@ -106,4 +125,121 @@
 .container-right .pagination a:last-child,
 .container-right .pagination strong:last-child {
     margin-right: 0px;
+}
+
+/* Styles for create new user */
+.container-right .create-user {
+    padding-bottom: 15px;
+}
+
+.container-right .create-user button {
+    background-color: #2ECC71;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: none;
+    transition: 0.2s ease-in;
+}
+
+.container-right .create-user button:hover {
+    background-color: #27AE60;
+}
+
+.container-right .create-user .create-user--form {
+    width: 500px;
+    position: absolute;
+    z-index: 999;
+    top: 75px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.15s ease-in;
+}
+
+.container-right .create-user .create-user--form.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.container-right .create-user .create-user--form form {
+    display: grid;
+    place-items: center;
+    background-color: white;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    padding: 50px 25px;
+}
+
+.container-right .create-user .create-user--form form .svg {
+    margin-top: -45px;
+    margin-right: -15px;
+    width: 100%;
+}
+
+.container-right .create-user .create-user--form form .svg svg {
+    float: right;
+    transition: 0.2s ease-in;
+}
+
+.container-right .create-user .create-user--form form .svg svg:hover {
+    transform: scale(1.5);
+}
+
+.container-right .create-user .create-user--form form h3 {
+    padding-bottom: 25px;
+    font-size: 28px;
+}
+
+.container-right .create-user .create-user--form form label {
+    font-size: 14px;
+    color: #71717a;
+}
+
+.container-right .create-user .create-user--form form input[type="text"] {
+    width: 99%;
+    padding: 5px;
+    margin: 7px 0 10px 0;
+    border: none;
+    border-bottom: 1px solid #71717a;
+    outline: none;
+    font-size: 14px;
+}
+
+.container-right .create-user .create-user--form form select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #71717a;
+    outline: none;
+    color: #71717a;
+    margin-bottom: 10px;
+}
+
+.container-right .create-user .create-user--form form input[type="file"] {
+    width: 100%;
+    margin: 7px 0 10px 0;
+    border: none;
+}
+
+.container-right .create-user .create-user--form form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #4A90E2;
+}
+
+.container-right .create-user .create-user--form form button:hover {
+    background-color: #3C78C0;
+}
+
+.container-right .create-user .create-user--form form .alert {
+    width: 96%;
+    background-color: rgba(220, 53, 69, 0.9);
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.container-right .create-user .create-user--form form .alert.success {
+    background-color: rgba(40, 167, 69, 0.9);
 }

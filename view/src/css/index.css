@@ -16,7 +16,7 @@ img, svg {
     max-width: 100%;
 }
 
-label, input {
+label, input, button, a, select, option {
     font-family: "Sora", serif;
 }
 
