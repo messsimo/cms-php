@@ -20,6 +20,8 @@
 
         // Require users model
         require("/Users/danielmihai/Documents/code/cms_php/model/usersModel.php");
+        // Require access model
+        require("/Users/danielmihai/Documents/code/cms_php/model/accessModel.php");
     ?>
 
     <!-- Overlay -->
@@ -30,7 +32,7 @@
         <div class="nav">
             <div class="user-info">
                 <h2>Admin Panel (CMS)</h2>
-                <img src="src/images/no_avatar.png" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
+                <img src="src/avatars/<?= $_SESSION["user"][0]["photo"] ?>" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
                 <p><?= $_SESSION["user"][0]["login"] ?? '' ?></p>
             </div>
 
@@ -51,7 +53,7 @@
                 <button id="openForm-btn">Create new user</button>
 
                 <div class="create-user--form">
-                    <form action="" method="POST">
+                    <form action="/controller/addUserController.php" method="POST" enctype="multipart/form-data">
                         <div class="svg">
                             <svg id="closeForm-btn" version="1.0" xmlns="http://www.w3.org/2000/svg" width="8.000000pt" height="8.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"><path d="M245 5111 c-92 -24 -173 -90 -215 -176 -35 -71 -35 -198 -1 -270 19 -40 223 -249 1050 -1078 l1026 -1027 -1026 -1028 c-1115 -1116 -1066 -1062 -1077 -1188 -10 -126 53 -240 168 -303 61 -33 71 -36 150 -35 68 0 95 5 135 24 41 19 244 217 1078 1049 l1027 1026 1028 -1026 c833 -832 1036 -1030 1077 -1049 40 -19 67 -24 135 -24 78 -1 90 2 148 33 70 38 100 70 140 145 36 71 38 196 2 271 -19 41 -217 244 -1049 1077 l-1026 1028 1026 1028 c832 833 1030 1036 1049 1077 19 40 24 67 24 135 1 78 -2 90 -33 148 -38 70 -70 100 -145 140 -71 36 -196 38 -271 2 -41 -19 -244 -217 -1077 -1049 l-1028 -1026 -1027 1026 c-838 837 -1037 1030 -1077 1048 -53 24 -161 36 -211 22z"/></g></svg>
                         </div>
@@ -59,39 +61,40 @@
                         <label for="login">Login</label>
                         <input type="text" name="login" placeholder="Stipe Miocic">
                         <label for="email">Email</label>
-                        <input type="text" name="email" placeholder="miocic@mail.ru">
-                        <label for="passowrd">Password</label>
-                        <input type="text" name="passowrd" placeholder="********">
-                        <label for="rePassowrd">Confirm password</label>
-                        <input type="text" name="rePassowrd" placeholder="********">
+                        <input type="email" name="email" placeholder="miocic@mail.ru">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="********">
+                        <label for="rePassoword">Confirm password</label>
+                        <input type="password" name="rePassword" placeholder="********">
                         <label for="access">Access</label>
                         <select name="access" id="access">
-                            <option value="">Admin</option>
-                            <option value="">Admin</option>
+                            <?php foreach ($access_info as $el) { ?>
+                                <option value="<?= $el['access'] ?>"><?= $el["access"] ?></option>
+                            <?php } ?>
                         </select>
-                        <label for="avatar">Upload image</label>
-                        <input type="file" name="avatar">
-
-                        <!-- Errors alert -->
-                        <?php if (isset($_SESSION["error_addUser"])) { ?>
-                            <div class="alert">
-                                <span><?= $_SESSION["error_addUser"] ?></span>
-                            </div>
-                            <?php unset($_SESSION["error_addUser"]); ?>
-                        <?php } ?>
-
-                        <!-- Success alert -->
-                        <?php if (isset($_SESSION["success_addUser"])) { ?>
-                            <div class="alert">
-                                <span><?= $_SESSION["success_addUser"] ?></span>
-                            </div>
-                            <?php unset($_SESSION["success_addUser"]); ?>
-                        <?php } ?>
+                        <label for="photo">Upload image</label>
+                        <input type="file" name="photo">
 
                         <button type="submit">Create</button>
                     </form>
                 </div>
             </div>
+            <?php } ?>
+
+            <!-- Errors alert -->
+            <?php if (isset($_SESSION["error_addUser"])) { ?>
+                <div class="alert">
+                    <span><?= $_SESSION["error_addUser"] ?></span>
+                </div>
+                <?php unset($_SESSION["error_addUser"]); ?>
+            <?php } ?>
+
+            <!-- Success alert -->
+            <?php if (isset($_SESSION["success_addUser"])) { ?>
+                <div class="alert success">
+                    <span><?= $_SESSION["success_addUser"] ?></span>
+                </div>
+                <?php unset($_SESSION["success_addUser"]); ?>
             <?php } ?>
 
             <table>

@@ -25,7 +25,7 @@
         <div class="nav">
             <div class="user-info">
                 <h2>Admin Panel (CMS)</h2>
-                <img src="src/images/no_avatar.png" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
+                <img src="src/avatars/<?= $_SESSION["user"][0]["photo"] ?>" alt="<?= $_SESSION["user"][0]["login"] ?? '' ?>">
                 <p><?= $_SESSION["user"][0]["login"] ?? '' ?></p>
             </div>
 

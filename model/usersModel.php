@@ -9,7 +9,7 @@
     $users = $stmt->fetchAll(2);
 
     // Fields pre page
-    $fieldsPrePage = 10; // Need to change value of var, if you want to change amout of fields pre page
+    $fieldsPrePage = 5; // Need to change value of var, if you want to change amout of fields pre page
     $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
     $offset = ($page - 1) * $fieldsPrePage;
     
@@ -25,6 +25,9 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $usersInfo = $stmt->fetchAll(2);
+
+
+
 
     // Vars
     $label = ["Admin", "Manager", "Staff"];
@@ -45,3 +48,19 @@
 
     // Prepare data for JavaScript
     $data = [$adminsCount, $managersCount, $staffCount];
+
+
+
+    // Function: add new user
+    function addUser($login, $email, $password, $access, $photo) {
+        global $pdo;
+        // SQL
+        $sql = "INSERT INTO `users` (`login`, `email`, `password`, `access`, `photo`) VALUES (:login, :email, :password, :access, :photo)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":login", $login);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":access", $access);
+        $stmt->bindParam(":photo", $photo);
+        $stmt->execute();
+    }

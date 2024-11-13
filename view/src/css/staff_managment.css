@@ -194,7 +194,9 @@
     color: #71717a;
 }
 
-.container-right .create-user .create-user--form form input[type="text"] {
+.container-right .create-user .create-user--form form input[type="text"],
+.container-right .create-user .create-user--form form input[type="email"],
+.container-right .create-user .create-user--form form input[type="password"] {
     width: 99%;
     padding: 5px;
     margin: 7px 0 10px 0;
@@ -231,15 +233,16 @@
     background-color: #3C78C0;
 }
 
-.container-right .create-user .create-user--form form .alert {
-    width: 96%;
+.container-right .alert {
+    width: 98%;
     background-color: rgba(220, 53, 69, 0.9);
     padding: 10px;
     color: white;
     font-size: 14px;
     border-radius: 4px;
+    margin-bottom: 15px;
 }
 
-.container-right .create-user .create-user--form form .alert.success {
+.container-right .alert.success {
     background-color: rgba(40, 167, 69, 0.9);
 }
