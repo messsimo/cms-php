@@ -51,6 +51,7 @@
 
 
 
+
     // Function: add new user
     function addUser($login, $email, $password, $access, $photo) {
         global $pdo;
@@ -62,5 +63,19 @@
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":access", $access);
         $stmt->bindParam(":photo", $photo);
+        $stmt->execute();
+    }
+
+
+
+
+    // Delete user
+    if (isset($_GET["remove"])) {
+        // Var
+        $id = $_GET["remove"];
+        // SQL
+        $sql = "DELETE FROM `users` WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
         $stmt->execute();
     }

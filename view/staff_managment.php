@@ -104,6 +104,7 @@
                         <td>Email</td>
                         <td>Access</td>
                         <td>Details</td>
+                        <td>Remove</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,6 +114,7 @@
                         <td><?= $el["email"] ?></td>
                         <td><?= $el["access"] ?></td>
                         <td><a href="">More info</a></td>
+                        <td><a class="remove-btn" href="/view/staff_managment.php?remove=<?= $el["id"] ?>">Remove</a></td>
                    </tr>
                    <?php } ?>
                 </tbody>
