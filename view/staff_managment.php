@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Require CSS -->
+    <!-- Require CSS -->
     <link rel="stylesheet" href="src/css/index.css">
     <link rel="stylesheet" href="src/css/nav_block.css">
     <link rel="stylesheet" href="src/css/staff_managment.css">
@@ -113,7 +113,7 @@
                         <td><?= $el["login"] ?></td>
                         <td><?= $el["email"] ?></td>
                         <td><?= $el["access"] ?></td>
-                        <td><a href="">More info</a></td>
+                        <td><a href="/view/staff_info.php?id=<?= $el["id"] ?>">More info</a></td>
                         <td><a class="remove-btn" href="/view/staff_managment.php?remove=<?= $el["id"] ?>">Remove</a></td>
                    </tr>
                    <?php } ?>

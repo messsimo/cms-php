@@ -79,3 +79,16 @@
         $stmt->bindParam(":id", $id);
         $stmt->execute();
     }
+
+    // Staff Info
+    if(isset($_GET["id"])) {
+        // Var
+        $id = $_GET["id"];
+        // SQL
+        $sql = "SELECT * FROM `users` WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $staffInfo = $stmt->fetchAll(2);
+    }
+    

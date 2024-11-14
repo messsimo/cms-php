@@ -1,0 +1,104 @@
+/* Styles for user info */
+.container-right .container-staffInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+}
+
+.container-right .container-staffInfo .user-image {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-right .container-staffInfo .user-image img {
+    width: 225px;
+    height: 250px;
+    border-radius: 18px;
+    padding: 0;
+}
+
+.container-right .container-staffInfo .user-image p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: -200px;
+}
+
+/* Styles for form */
+.container-right .container-staffInfo .user-form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.container-right .container-staffInfo .user-form h4 {
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+.container-right .container-staffInfo .user-form form {
+    background-color: #34495E;
+    width: 100%;
+    padding: 25px;
+    border-radius: 18px;
+}
+
+.container-right .container-staffInfo .user-form form label {
+    color: #BDC3C7;
+    font-size: 14px;
+    display: block;
+}
+
+.container-right .container-staffInfo .user-form form input,
+.container-right .container-staffInfo .user-form form select {
+    display: block;
+    margin: 5px 0 10px 0;
+    width: 94%;
+    padding: 10px 10px;
+    border: none;
+    background-color: #34495E;
+    color: white;
+    border-bottom: 2px solid #BDC3C7;
+    outline: none;
+}
+
+.container-right .container-staffInfo .user-form form select {
+    width: 98%;
+}
+
+.container-right .container-staffInfo .user-form form input[type="file"]::file-selector-button {
+    background-color: #4A90E2;
+    border: none;
+    padding: 7px 15px;
+    color: white;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: -5px;
+    border-bottom: 0px;
+    transition: 0.2s ease-in;
+}
+
+.container-right .container-staffInfo .user-form form input[type="file"]::file-selector-button:hover {
+    background-color: #3C78C0;
+}
+
+.container-right .container-staffInfo .user-form form input[type="file"] {
+    border-bottom: none;
+}
+
+.container-right .container-staffInfo .user-form form button {
+    width: 99%;
+    border: none;
+    padding: 7px 0;
+    border-radius: 4px;
+    transition: 0.2s ease-in;
+}
+
+.container-right .container-staffInfo .user-form form button:hover {
+    background-color: #E6F7FF;
+}
