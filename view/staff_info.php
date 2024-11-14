@@ -52,7 +52,7 @@
 
                 <div class="user-form">
                     <h4>Edit user data</h4>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="/controller/updateUserController.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" value="<?= $staffInfo[0]["id"] ?>" name="id">
                         <label for="login">Login</label>
                         <input type="text" value="<?= $staffInfo[0]["login"] ?>" name="login">
@@ -69,6 +69,10 @@
                         </select>
                         <label for="photo">Photo</label>
                         <input type="file" value="<?= $staffInfo[0]["photo"] ?>" name="photo">
+
+                        <div class="alert success">
+                            <span>123</span>
+                        </div>
 
                         <!-- Errors alert -->
                         <?php if (isset($_SESSION["error_editStaff"])) { ?>

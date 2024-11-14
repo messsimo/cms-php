@@ -90,5 +90,26 @@
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $staffInfo = $stmt->fetchAll(2);
+    }    
+
+    // Function update user data
+    function updateUser($id, $login, $email, $password, $access, $photo) {
+        // var
+        global $pdo;
+        // SQL
+        $sql = "UPDATE `users` SET 
+            `login` = :login,
+            `email` = :email,
+            `password` = :password,
+            `access` = :access,
+            `photo` = :photo
+            WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':login', $login);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password); 
+        $stmt->bindParam(':access', $access);
+        $stmt->bindParam(':photo', $photo);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
-    
