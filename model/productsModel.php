@@ -35,3 +35,17 @@
         $stmt->bindParam(":model_year", $model_year);
         $stmt->execute();
     }
+
+    // Delete product
+    if (isset($_GET["remove"])) {
+        // Var
+        $id = $_GET["remove"];
+
+        // SQL
+        $sql = "DELETE FROM `products` WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $_SESSION["delete_item"] = "Product #$id was deleted";
+    }

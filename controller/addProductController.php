@@ -13,14 +13,14 @@
     $model_year = $_POST["model_year"];
 
     // Validation 
-    if (empty($login) || empty($email) || empty($password) || empty($rePassword) || empty($access)) {
+    if (empty($name) || empty($price) || empty($memory) || empty($color) || empty($model_year)) {
         $_SESSION["error_addProduct"] = "Fill all the fields";
         header("Location: /view/products_managment.php");
-    } else if (!is_int($price) || !is_int($memory) || !is_int($model_year)) {
+    } else if (is_int($price) || is_int($memory) || is_int($model_year)) {
         $_SESSION["error_addProduct"] = "Price, memory and model year of product must be numeric";
         header("Location: /view/products_managment.php");
-    } else if (!is_string($color)) {
-        $_SESSION["error_addProduct"] = "Color shouldn't has any numbers";
+    } else if (!ctype_alpha($color)) {
+        $_SESSION["error_addProduct"] = "Color shouldn't contain any numbers or special characters";
         header("Location: /view/products_managment.php");
     }
 

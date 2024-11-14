@@ -72,6 +72,14 @@
             </div>
             <?php } ?>
 
+            <!-- Delete item alert -->
+            <?php if (isset($_SESSION["delete_item"])) { ?>
+                <div class="alert success">
+                    <span><?= $_SESSION["delete_item"] ?></span>
+                </div>
+                <?php unset($_SESSION["delete_item"]); ?>
+            <?php } ?>
+
             <!-- Errors alert -->
             <?php if (isset($_SESSION["error_addProduct"])) { ?>
                 <div class="alert">
@@ -105,7 +113,7 @@
                         <td><?= $el["name"] ?></td>
                         <td><?= number_format($el["price"]) ?>$</td>
                         <td><a href="">More info</a></td>
-                        <td><a class="remove-btn" href="">Remove</a></td>
+                        <td><a class="remove-btn" href="/view/products_managment.php?remove=<?= $el["id"]?>">Remove</a></td>
                    </tr>
                    <?php } ?>
                 </tbody>
