@@ -72,6 +72,10 @@
     background-color: rgba(220, 53, 69, 0.9);
 }
 
+.container-right table tbody tr td .remove-btn:hover {
+    background-color: rgba(200, 40, 55, 1);
+}
+
 .container-right table tbody tr td a:hover {
     background-color: #3C78C0;
 }

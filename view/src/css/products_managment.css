@@ -72,6 +72,10 @@
     background-color: rgba(220, 53, 69, 0.9);
 }
 
+.container-right table tbody tr td .remove-btn:hover {
+    background-color: rgba(200, 40, 55, 1);
+}
+
 .container-right table tbody tr td a:hover {
     background-color: #3C78C0;
 }
@@ -94,7 +98,7 @@
     background-color: rgba(220, 53, 69, 0.9);
 }
 
-/* Styles for create new user */
+/* Styles for create new product */
 .container-right .create-product {
     padding-bottom: 15px;
 }
@@ -183,10 +187,19 @@
     margin-bottom: 10px;
 }
 
-.container-right .create-product .create-product--form form input[type="file"] {
-    width: 100%;
-    margin: 7px 0 10px 0;
+.container-right .create-product .create-product--form form input[type="file"]::file-selector-button {
+    background-color: #4A90E2;
     border: none;
+    padding: 7px 15px;
+    color: white;
+    border-radius: 4px;
+    border-bottom: 0px;
+    transition: 0.2s ease-in;
+    margin: 10px 25px 10px;
+}
+
+.container-right .create-product .create-product--form form input[type="file"]::file-selector-button:hover {
+    background-color: #3C78C0;
 }
 
 .container-right .create-product .create-product--form form button {
@@ -212,4 +225,35 @@
 
 .container-right .alert.success {
     background-color: rgba(40, 167, 69, 0.9);
+}
+
+/* Pagination styles */
+.container-right .pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.container-right .pagination a,
+.container-right .pagination strong {
+    margin-right: 10px;
+    background-color: #5DADE2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 7px 10px 5px 10px; 
+    font-weight: 400;
+    font-size: 14px;
+    transition: 0.2s ease-in;
+}
+
+.container-right .pagination a:hover,
+.container-right .pagination strong:hover {
+    background-color: #D5DBDB;
+    color: black;
+}
+
+.container-right .pagination a:last-child,
+.container-right .pagination strong:last-child {
+    margin-right: 0px;
 }
