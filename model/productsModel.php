@@ -49,3 +49,40 @@
 
         $_SESSION["delete_item"] = "Product #$id was deleted";
     }
+
+    // Show product info 
+    if (isset($_GET["id"])) {
+        // Var
+        $id = $_GET["id"];
+
+        // SQL
+        $sql = "SELECT * FROM `products` WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $productInfo = $stmt->fetchAll(2);
+    }
+
+    // Update product info
+    function updateProduct($id, $name, $price, $saved_file_path, $color, $memory, $model_year) {
+        // var
+        global $pdo;
+        // SQL
+        $sql = "UPDATE `products` SET 
+            `name` = :name,
+            `price` = :price,
+            `photo` = :photo,
+            `color` = :color,
+            `memory` = :memory,
+            `model_year` = :model_year
+            WHERE `id` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':photo', $saved_file_path); 
+        $stmt->bindParam(':color', $color);
+        $stmt->bindParam(':memory', $memory);
+        $stmt->bindParam(":model_year", $model_year);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }

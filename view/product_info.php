@@ -11,6 +11,14 @@
     <title>Product info - CMS</title>
 </head>
 <body>
+    <?php   
+        // Start session
+        session_start(); 
+        
+        // Require products model
+        require("/Users/danielmihai/Documents/code/cms_php/model/productsModel.php");
+    ?>
+    
     <!-- Wrapper -->
     <div class="wrapper">
         <!-- Navigation block -->
@@ -31,53 +39,54 @@
 
         <!-- Right container -->
         <div class="container-right">
-            <h1>Products Info#23</h1> 
+            <h1>Products Info#<?= $productInfo[0]["id"] ?></h1> 
 
             <div class="container-productInfo">
                 <div class="product-info">
-                    <img src="src/cover_images/no_image.png" alt="">
+                    <img src="src/cover_images/<?= $productInfo[0]["photo"] ?>" alt="<?= $productInfo[0]["name"] ?>">
                     <div class="product-info--text">
-                        <p><b>Product:</b> Iphone 11, 256gb, black</p>
-                        <p><b>Price:</b> 500 $</p>
-                        <p><b>Color:</b> Black</p>
-                        <p><b>Memory:</b> 256gb</p>
-                        <p><b>Model year:</b> 2020</p>
+                        <p><b>Product:</b> <?= $productInfo[0]["name"] ?></p>
+                        <p><b>Price:</b> <?= number_format($productInfo[0]["price"]) ?> $</p>
+                        <p><b>Color:</b> <?= $productInfo[0]["color"] ?></p>
+                        <p><b>Memory:</b> <?= $productInfo[0]["memory"] ?>gb</p>
+                        <p><b>Model year:</b> <?= $productInfo[0]["model_year"] ?></p>
                     </div>
                 </div>
 
                 <div class="product-form--edit">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="/controller/editProductController.php" method="POST" enctype="multipart/form-data">
                         <h4>Update product info</h4>
+                            <input type="hidden" name="id" value="<?= $productInfo[0]["id"] ?>">
                             <label for="name">Product name</label>
-                            <input type="text" name="name" placeholder="Iphone 11, 256gb, black">
+                            <input type="text" name="name" value="<?= $productInfo[0]["name"] ?>">
                             <label for="price">Product price</label>
-                            <input type="text" name="price" placeholder="489">
+                            <input type="text" name="price" value="<?= $productInfo[0]["price"] ?>">
                             <label for="color">Product color</label>
-                            <input type="text" name="color" placeholder="Gold">
+                            <input type="text" name="color" value="<?= $productInfo[0]["color"] ?>">
                             <label for="memory">Product memory</label>
-                            <input type="text" name="memory" placeholder="128">
+                            <input type="text" name="memory" value="<?= $productInfo[0]["memory"] ?>">
                             <label for="model_year">Model year</label>
-                            <input type="text" name="model_year" placeholder="2024">
+                            <input type="text" name="model_year" value="<?= $productInfo[0]["model_year"] ?>">
                             <label for="photo">Upload image</label>
-                            <input type="file" name="photo">
+                            <input type="file" name="photo" value="<?= $productInfo[0]["photo"] ?>">
 
                             <!-- Errors alert -->
-                            <?php if (isset($_SESSION["error_addProduct"])) { ?>
+                            <?php if (isset($_SESSION["error_editProduct"])) { ?>
                                 <div class="alert">
-                                    <span><?= $_SESSION["error_addProduct"] ?></span>
+                                    <span><?= $_SESSION["error_editProduct"] ?></span>
                                 </div>
-                                <?php unset($_SESSION["error_addProduct"]); ?>
+                                <?php unset($_SESSION["error_editProduct"]); ?>
                             <?php } ?>
 
                             <!-- Success alert -->
-                            <?php if (isset($_SESSION["success_addProduct"])) { ?>
+                            <?php if (isset($_SESSION["success_editProduct"])) { ?>
                                 <div class="alert success">
-                                    <span><?= $_SESSION["success_addProduct"] ?></span>
+                                    <span><?= $_SESSION["success_editProduct"] ?></span>
                                 </div>
-                                <?php unset($_SESSION["success_addProduct"]); ?>
+                                <?php unset($_SESSION["success_editProduct"]); ?>
                             <?php } ?>
 
-                            <button type="submit">Create</button>
+                            <button type="submit">Update</button>
                     </form>
                 </div>
             </div>
