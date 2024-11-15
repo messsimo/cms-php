@@ -112,7 +112,7 @@
                         <td><?= $el["id"] ?></td>
                         <td><?= $el["name"] ?></td>
                         <td><?= number_format($el["price"]) ?>$</td>
-                        <td><a href="">More info</a></td>
+                        <td><a href="/view/product_info.php?id=<?= $el["id"] ?>">More info</a></td>
                         <td><a class="remove-btn" href="/view/products_managment.php?remove=<?= $el["id"]?>">Remove</a></td>
                    </tr>
                    <?php } ?>
